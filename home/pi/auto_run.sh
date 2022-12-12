@@ -90,7 +90,7 @@ function save_volume() {
 
 function network_setup() {
     # silent check at first
-    if ping -q -c 1 -W 1 1.1.1.1 >/dev/null 2>&1 ; then
+    if ping -q -c 1 -W 1 192.168.1.1 >/dev/null 2>&1 ; then
         return 0
     fi
 
@@ -100,7 +100,7 @@ function network_setup() {
     should_reboot=255
     verify_wifi_countdown=0
 
-    while ! ping -q -c 1 -W 1 1.1.1.1 >/dev/null 2>&1 ; do  # check for network connection
+    while ! ping -q -c 1 -W 1 192.168.1.1 >/dev/null 2>&1 ; do  # check for network connection
         if [ $show_prompt = 1 ]
         then
             echo "Network connection not found, press a key to setup via keyboard"
@@ -208,7 +208,7 @@ function network_setup() {
 
 function update_software() {
     # Look for internet connection.
-    if ping -q -c 1 -W 1 1.1.1.1 >/dev/null 2>&1
+    if ping -q -c 1 -W 1 192.168.1.1 >/dev/null 2>&1
     then
         echo "**** Checking for updates to Picroft environment"
         echo "This might take a few minutes, please be patient..."
